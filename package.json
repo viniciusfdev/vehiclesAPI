@@ -24,6 +24,7 @@
   "homepage": "https://github.com/viniciusfdev/vehiclesAPI#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "http-status": "^1.5.0",
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
