@@ -1,0 +1,25 @@
+{
+  "name": "vehicles_api",
+  "version": "1.0.0",
+  "description": "Vehicles RESP API - infosistemas ",
+  "main": "server.js",
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon debug server.js",
+    "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viniciusfdev/vehiclesAPI.git"
+  },
+  "keywords": [
+    "vehicles",
+    "crud",
+    "test"
+  ],
+  "author": "Vinícius França",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viniciusfdev/vehiclesAPI/issues"
+  },
+  "homepage": "https://github.com/viniciusfdev/vehiclesAPI#readme"
+}
