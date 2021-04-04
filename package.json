@@ -21,5 +21,13 @@
   "bugs": {
     "url": "https://github.com/viniciusfdev/vehiclesAPI/issues"
   },
-  "homepage": "https://github.com/viniciusfdev/vehiclesAPI#readme"
+  "homepage": "https://github.com/viniciusfdev/vehiclesAPI#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "mocha": "^8.3.2"
+  }
 }
