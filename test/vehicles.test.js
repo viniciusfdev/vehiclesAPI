@@ -1,4 +1,5 @@
 const httpStatus = require("http-status");
+const db = require("../model/database");
 const request = require("supertest");
 const app = require("../app");
 
@@ -19,6 +20,8 @@ const VEHICLE = {
 };
 
 const route = "vehicles";
+
+before(async () => await db.sync());
 
 after(() => process.exit(0));
 
