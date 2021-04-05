@@ -44,13 +44,15 @@ exports.update = ({ id, placa, chassi, renavam, modelo, ano }) => {
   if (!placa && !renavam && !chassi && !modelo && !ano)
     throw new BadRequestError("No required attributes passed");
 
-  let query = `UPDATE vehicle SET`;
+  let query = `UPDATE vehicle SET  `;
 
   if (params) {
-    query += ` (${Object.keys(params).filter((k) => params[k])}) `;
-    query += ` VALUES (${Object.values
-      .filter((p) => p)(params)
-      .map((p) => `'${p}'`)}) `;
+    Object.keys(params)
+      .filter((k) => params[k])
+      .forEach((k) => (query += ` ${k} = '${params[k]}', `));
+
+    query = query.substring(0, query.length - 2);
+
     query += ` WHERE id = ${id} `;
   }
 

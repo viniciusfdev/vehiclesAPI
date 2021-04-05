@@ -45,11 +45,8 @@ describe(`GET /api/${route}`, function () {
       .expect("Content-Type", /json/)
       .expect(httpStatus.OK)
       .end(function (err, res) {
-        console.log(err)
-        console.log(res.body);
-        console.log(res.status)
         if (err) return done(err);
-        id = res.model[0].id;
+        id = res.body.model[0].id;
         done();
       });
   });

@@ -57,7 +57,6 @@ class Database {
   run = async (query, params = []) =>
     new Promise((resolve, reject) => {
       try {
-        console.log("Executing query:", query);
         this.getConn().run(query, params, (err, rows) => {
           if (err) reject(err);
           else resolve(rows);
@@ -76,7 +75,6 @@ class Database {
   find = (query, params = []) =>
     new Promise((resolve, reject) => {
       try {
-        console.log("Executing query:", query);
         this.getConn().all(query, params, (err, rows) => {
           if (err) reject(err);
           else resolve(rows);
@@ -95,7 +93,6 @@ class Database {
   findOne = (query, params = []) =>
     new Promise((resolve, reject) => {
       try {
-        console.log("Executing query:", query);
         this.getConn().all(query, params, (err, rows) => {
           if (err) reject(err);
           else resolve(rows && rows.length > 0 ? rows[0] : null);
@@ -114,7 +111,6 @@ class Database {
   save = (query, params = []) =>
     new Promise((resolve, reject) => {
       try {
-        console.log("Executing query:", query);
         this.getConn().run(query, params, (err) => {
           if (err) reject(err);
           else resolve(true);
@@ -133,7 +129,6 @@ class Database {
   destroy = (query, params = []) =>
     new Promise((resolve, reject) => {
       try {
-        console.log("Executing query:", query);
         this.getConn().run(query, params, (err) => {
           if (err) reject(err);
           else resolve(true);

@@ -27,7 +27,7 @@ router.post("/", (req, res, next) => {
 
 router.put("/:id", (req, res, next) => {
   vehicles
-    .update(req.body)
+    .update({ ...req.params, ...req.body })
     .then((model) => res.status(httpStatus.OK).json({ model }))
     .catch(next);
 });
