@@ -1,3 +1,4 @@
+const vehicleDAO = require("../model/vehicle_dao");
 const httpStatus = require("http-status");
 const db = require("../model/database");
 const request = require("supertest");
@@ -21,7 +22,27 @@ const VEHICLE = {
 
 const route = "vehicles";
 
-before(async () => await db.sync());
+/**
+ * fill database
+ */
+before(async () => {
+  await db.sync();
+  const promises = [];
+  for (var i = 0; i < 100; i++) {
+    promises.push(
+      vehicleDAO.create({
+        placa: gennRandString(3) + "-" + gennRandString(4),
+        chassi: gennRandString(),
+        renavam: gennRandString(11),
+        modelo: gennRandString(10),
+        marca: gennRandString(10),
+        ano: new Date(),
+      })
+    );
+  }
+
+  await Promise.allSettled(promises);
+});
 
 after(() => process.exit(0));
 
@@ -87,11 +108,9 @@ describe(`GET /api/${route}`, function () {
 
 describe(`PUT /api/${route}/id`, function () {
   it("Update entity by id", function (done) {
-    VEHICLE.modelo = gennRandString(10);
-
     request(app)
       .put(`/api/${route}/${id}`)
-      .send(VEHICLE)
+      .send({ modelo: gennRandString(10) })
       .set("Accept", "application/json")
       .expect("Content-Type", /json/)
       .expect(httpStatus.OK)
