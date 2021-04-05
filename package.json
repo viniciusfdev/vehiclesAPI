@@ -4,6 +4,7 @@
   "description": "Vehicles RESP API - infosistemas ",
   "main": "server.js",
   "scripts": {
+    "deploy": "NODE_ENV=production node --no-deprecation server.js",
     "dev": "NODE_ENV=development nodemon debug server.js",
     "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha"
   },
@@ -29,6 +30,8 @@
   },
   "devDependencies": {
     "assert": "^2.0.0",
-    "mocha": "^8.3.2"
+    "mocha": "^8.3.2",
+    "nodemon": "^2.0.7",
+    "supertest": "^6.1.3"
   }
 }
